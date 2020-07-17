@@ -1,0 +1,34 @@
+{% extends "layout.html.twig" %}
+{% block title %}Liste des contacts{% endblock %}
+
+{% block ariane %}
+    <a class="btn btn-outline-primary active" href="/formation/index.php">Accueil</a>
+    <a class="btn btn-outline-primary" href="/formation/index.php/create">Create</a>
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+                <th>Code Postal</th>
+                <th>Ville</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# for contact in contacts %}
+                <tr>
+                    <td>{{contact.nom}}</td>
+                    <td>{{contact.prenom}}</td>
+                    <td>{{contact.adresse}}</td>
+                    <td>{{contact.cp}}</td>
+                    <td>{{contact.ville}}</td>
+                    <td><a href="index.php/update?id={{contact.id_contact}}">UPDATE</td>
+                </tr>
+            {% endfor #}
+        </tbody>
+    </table>
+{% endblock %}
