@@ -1,11 +1,13 @@
 <?php
     //Loading composer 
     require 'vendor/autoload.php'; 
+    require 'app/controller/controllers.php';
 
     //configuration de notre moteur de template
 	use Twig\Environment;
     use Twig\Loader\FilesystemLoader;
-    
+	use App\entity\Contact;
+	
     //creation moteur template
     $loader = new FilesystemLoader('app/template');
 	$twig = new Environment($loader);
@@ -18,7 +20,7 @@
 	
 	// route the request internally
 	if ('/index.php' === $uri || '/formation/' === $uri) {
-		echo $twig->render('index.html.twig');
+		index_action($twig);
 	} elseif ('/index.php/show' === $uri && isset($_GET['id'])) {
 		echo "show_action";
 	} elseif ('/index.php/create' === $uri) {
